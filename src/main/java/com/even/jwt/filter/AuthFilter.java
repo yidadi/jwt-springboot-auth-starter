@@ -14,7 +14,7 @@ import java.io.IOException;
  * 授权拦截filter
  */
 @Component
-public class AuthFilter implements Filter{
+public class AuthFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

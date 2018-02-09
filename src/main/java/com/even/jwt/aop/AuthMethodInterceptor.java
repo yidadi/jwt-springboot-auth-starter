@@ -17,7 +17,7 @@ public class AuthMethodInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {
         String methodName = methodInvocation.getMethod().getName();
-        if(exclude.contains(methodName)) {
+        if (exclude.contains(methodName)) {
             return methodInvocation.proceed();
         }
         return null;

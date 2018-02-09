@@ -27,6 +27,7 @@ public class TokenHandler {
 
     /**
      * 通过token 解析出用户电话 并查询用户信息
+     *
      * @param token
      * @return
      */
@@ -36,7 +37,7 @@ public class TokenHandler {
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
-        if(StringUtils.isEmpty(mobile)) {
+        if (StringUtils.isEmpty(mobile)) {
             return null;
         }
         return userService.getUserVoByMobile(mobile);
@@ -44,6 +45,7 @@ public class TokenHandler {
 
     /**
      * 通过传入的用户信息生成token
+     *
      * @param userVo
      * @return
      */

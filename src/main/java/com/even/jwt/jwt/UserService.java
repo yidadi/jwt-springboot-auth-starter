@@ -5,4 +5,6 @@ import com.even.jwt.vo.UserVo;
 
 public interface UserService {
     UserVo getUserVoByMobile(String mobile);
+
+    void cache(UserVo userVo);
 }

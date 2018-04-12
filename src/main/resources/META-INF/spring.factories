@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.even.jwt.config.AuthAutoConfig
+com.even.jwt.config.MyWebAppConfigurer

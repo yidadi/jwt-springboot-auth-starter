@@ -6,14 +6,12 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-@Component
 public class TokenHandler {
 
     @Value("${com.even.secret}")
@@ -52,6 +50,7 @@ public class TokenHandler {
     public String createToken(UserVo userVo) {
         Date now = new Date();
         Date expiration = new Date(now.getTime() + TimeUnit.SECONDS.toMillis(Long.parseLong(expireTime)));
+        userService.cache(userVo);
         return Jwts.builder()
                 .setId(UUID.randomUUID().toString())
                 .setSubject(userVo.getMobile())
